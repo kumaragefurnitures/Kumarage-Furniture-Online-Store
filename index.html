@@ -1,121 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kumarage Furnitures</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f4f4f4;
+      background-color: #f9f9f9;
+      color: #333;
     }
-
     header {
-      background: url('images/banner.jpg') center/cover no-repeat;
-      height: 200px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      background: #2c3e50;
       color: white;
-      text-shadow: 1px 1px 3px #000;
-    }
-
-    header h1 {
-      background: rgba(0, 0, 0, 0.5);
-      padding: 15px 30px;
-      border-radius: 10px;
-    }
-
-    .welcome, .contact {
+      padding: 1rem;
       text-align: center;
-      padding: 20px;
-      background: white;
-      margin-bottom: 10px;
     }
-
-    .category-bar {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      background: white;
-      padding: 10px 0;
-      border-top: 1px solid #ddd;
-      border-bottom: 1px solid #ddd;
+    .banner {
+      width: 100%;
+      height: 200px;
+      background: url('banner.jpg') center/cover no-repeat;
     }
-
-    .category {
+    .welcome {
       text-align: center;
-      margin: 10px;
-      cursor: pointer;
+      padding: 1rem;
+      font-size: 1.5rem;
     }
-
-    .category img {
-      width: 40px;
-      height: 40px;
-      display: block;
-      margin: 0 auto 5px;
+    nav {
+      text-align: center;
+      padding: 1rem;
     }
-
-    section {
-      display: none;
-      padding: 20px;
+    select {
+      font-size: 1rem;
+      padding: 0.5rem;
     }
-
-    section.active {
-      display: block;
+    .section {
+      padding: 1rem;
     }
-
-    .product-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-    }
-
     .product {
-      background: white;
-      border: 1px solid #ccc;
+      border: 1px solid #ddd;
       border-radius: 8px;
-      width: 200px;
-      text-align: center;
-      padding: 10px;
+      margin: 1rem auto;
+      max-width: 300px;
+      padding: 1rem;
+      background: white;
     }
-
     .product img {
       width: 100%;
-      height: 150px;
-      object-fit: cover;
-      border-radius: 6px;
+      border-radius: 8px;
     }
-
-    .price {
+    .product h3 {
+      margin: 0.5rem 0;
+    }
+    .order-button {
       background: red;
       color: white;
-      margin: 10px 0;
-      padding: 5px;
-      font-weight: bold;
-      border-radius: 5px;
-    }
-
-    .order-btn {
-      background-color: #25d366;
-      color: white;
-      padding: 6px 12px;
+      padding: 0.5rem 1rem;
       border: none;
-      border-radius: 5px;
-      text-decoration: none;
-      display: inline-block;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
     }
-
-    @media (max-width: 600px) {
-      .category {
-        width: 70px;
-        font-size: 12px;
+    .footer {
+      background: #eee;
+      padding: 0.5rem;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+    .social-icons i {
+      margin: 0 0.3rem;
+      cursor: pointer;
+    }
+    @media (min-width: 768px) {
+      .products-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
       }
       .product {
-        width: 90%;
+        max-width: 300px;
       }
     }
   </style>
@@ -125,72 +92,78 @@
     <h1>Kumarage Furnitures</h1>
   </header>
 
-  <div class="welcome">
-    <p>Welcome to our furniture collection – quality, comfort, and design for your home.</p>
-  </div>
+  <div class="banner"></div>
+  <div class="welcome">Welcome to Kumarage Furnitures</div>
 
-  <div class="contact">
-    <p>Call or WhatsApp us: 077-1234567</p>
-  </div>
+  <nav>
+    <label for="category">Choose Category:</label>
+    <select id="category" onchange="goToCategory(this.value)">
+      <option value="">-- Select --</option>
+      <option value="beds">Beds</option>
+      <option value="chairs">Chairs</option>
+      <option value="dining">Dining Sets</option>
+      <option value="dressing">Dressing Tables</option>
+      <option value="sofas">Sofas</option>
+      <option value="wardrobes">Wardrobes</option>
+    </select>
+  </nav>
 
-  <div class="category-bar">
-    <div class="category" onclick="showCategory('sofas')">
-      <img src="images/sofas.png" alt="Sofas">
-      <div>Sofas</div>
-    </div>
-    <div class="category" onclick="showCategory('beds')">
-      <img src="images/beds.png" alt="Beds">
-      <div>Beds</div>
-    </div>
-    <div class="category" onclick="showCategory('wardrobes')">
-      <img src="images/wardrobes.png" alt="Wardrobes">
-      <div>Wardrobes</div>
-    </div>
-    <div class="category" onclick="showCategory('dressing')">
-      <img src="images/dressing_tables.png" alt="Dressing Tables">
-      <div>Dressing</div>
-    </div>
-    <div class="category" onclick="showCategory('dining_tables')">
-      <img src="images/dining_tables.png" alt="Dining Tables">
-      <div>Dining Tables</div>
-    </div>
-    <div class="category" onclick="showCategory('dining_chairs')">
-      <img src="images/dining_chairs.png" alt="Dining Chairs">
-      <div>Dining Chairs</div>
-    </div>
-    <div class="category" onclick="showCategory('chairs')">
-      <img src="images/chairs.png" alt="Chairs">
-      <div>Chairs</div>
-    </div>
-  </div>
-
-  <section id="home" class="active">
-    <h2 style="text-align:center">Top Sellers</h2>
-    <div class="product-grid">
-      <!-- Sample Top Sellers -->
+  <div class="section">
+    <h2>Best Sellers</h2>
+    <div class="products-grid">
       <div class="product">
-        <img src="images/sample.jpg" alt="Product 1">
-        <h4>Product 1</h4>
-        <div class="price">Rs. 35,000</div>
-        <a class="order-btn" href="https://wa.me/94771234567?text=I'm%20interested%20in%20Product%201" target="_blank">Order Now</a>
+        <img src="bestseller1.jpg" alt="Hot Seller 1">
+        <h3>Hot Seller 1</h3>
+        <button class="order-button" onclick="orderNow('Hot Seller 1')">Order Now</button>
       </div>
-      <!-- Add 9 more similarly -->
+      <div class="product">
+        <img src="bestseller2.jpg" alt="Hot Seller 2">
+        <h3>Hot Seller 2</h3>
+        <button class="order-button" onclick="orderNow('Hot Seller 2')">Order Now</button>
+      </div>
+      <!-- Add more best sellers similarly -->
     </div>
-  </section>
+  </div>
 
-  <!-- Category sections (start hidden) -->
-  <section id="sofas"><h2>Sofas</h2><div class="product-grid"></div></section>
-  <section id="beds"><h2>Beds</h2><div class="product-grid"></div></section>
-  <section id="wardrobes"><h2>Wardrobes</h2><div class="product-grid"></div></section>
-  <section id="dressing"><h2>Dressing Tables</h2><div class="product-grid"></div></section>
-  <section id="dining_tables"><h2>Dining Tables</h2><div class="product-grid"></div></section>
-  <section id="dining_chairs"><h2>Dining Chairs</h2><div class="product-grid"></div></section>
-  <section id="chairs"><h2>Chairs</h2><div class="product-grid"></div></section>
+  <div class="section">
+    <h2>Custom Furniture</h2>
+    <p>We build custom furniture</p>
+    <p><em>Modern. Unique. Designed for You.</em></p>
+    <img src="custom.jpg" alt="Custom Furniture" style="width:100%; max-width: 600px; display: block; margin: auto;">
+    <div style="text-align:center; margin-top:1rem;">
+      <a href="https://wa.me/qr/5SDXPXTIKUTNI1" class="order-button">Contact for Custom Furniture</a>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div>
+      <strong>Kumarage Furnitures</strong><br>
+      Contact Number: 0750680092 (Milan)<br>
+      +94 76 716 6905 (Main)<br>
+      0756153848 (Custom Furniture)<br>
+      Email: kumaragefurnitures@hotmail.com<br>
+      Address: 647/2, Pelagaspalatha Kosgoda<br>
+    </div>
+    <div class="social-icons">
+      Follow us:
+      <i class="fab fa-instagram"></i>
+      <i class="fab fa-facebook"></i>
+      <i class="fab fa-whatsapp"></i>
+    </div>
+  </div>
 
   <script>
-    function showCategory(catId) {
-      document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
-      document.getElementById(catId).classList.add('active');
+    function orderNow(productName) {
+      const message = `Hello, I would like to order: ${productName}`;
+      const phone = '94767166905';
+      const link = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+      window.open(link, '_blank');
+    }
+
+    function goToCategory(category) {
+      if (category) {
+        window.location.href = category + '.html';
+      }
     }
   </script>
 </body>
