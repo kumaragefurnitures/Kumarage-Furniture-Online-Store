@@ -1,88 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Kumarage Furnitures</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      padding: 0;
-      background-color: #f9f9f9;
+      background: #f9f9f9;
       color: #333;
     }
+
     header {
-      background: #2c3e50;
+      background: #444;
       color: white;
       padding: 1rem;
-      text-align: center;
+      text-align: right;
     }
-    .banner {
-      width: 100%;
-      height: 200px;
-      background: url('banner.jpg') center/cover no-repeat;
-    }
-    .welcome {
-      text-align: center;
-      padding: 1rem;
-      font-size: 1.5rem;
-    }
+
     nav {
+      background: white;
+      padding: 1rem;
       text-align: center;
-      padding: 1rem;
     }
+
     select {
-      font-size: 1rem;
       padding: 0.5rem;
+      font-size: 1rem;
+      border-radius: 4px;
+      border: 1px solid #ccc;
     }
-    .section {
+
+    h2 {
+      text-align: center;
+      margin-top: 2rem;
+      font-weight: 500;
+    }
+
+    .section-title {
+      text-align: center;
+      margin: 2rem 0 1rem;
+    }
+
+    .product-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
       padding: 1rem;
     }
+
     .product {
+      background: white;
       border: 1px solid #ddd;
       border-radius: 8px;
-      margin: 1rem auto;
-      max-width: 300px;
       padding: 1rem;
-      background: white;
+      width: 100%;
+      max-width: 300px;
+      box-sizing: border-box;
     }
+
     .product img {
       width: 100%;
-      border-radius: 8px;
+      border-radius: 4px;
     }
+
     .product h3 {
-      margin: 0.5rem 0;
+      font-size: 1.1rem;
+      margin: 0.5rem 0 0.2rem;
     }
-    .order-button {
+
+    .price {
+      color: green;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+
+    .btn {
       background: red;
       color: white;
-      padding: 0.5rem 1rem;
-      border: none;
-      border-radius: 4px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    .footer {
-      background: #eee;
       padding: 0.5rem;
-      font-size: 0.9rem;
+      display: inline-block;
+      border-radius: 5px;
       text-align: center;
+      text-decoration: none;
+      margin-top: 0.5rem;
     }
-    .social-icons i {
-      margin: 0 0.3rem;
-      cursor: pointer;
+
+    .custom-furniture {
+      text-align: right;
+      padding: 2rem 1rem;
+      background: #fff;
+      margin: 2rem 0;
     }
-    @media (min-width: 768px) {
-      .products-grid {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1rem;
-      }
-      .product {
-        max-width: 300px;
+
+    .custom-furniture img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      background: #333;
+      color: white;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .contact-info,
+    .social {
+      flex: 1 1 45%;
+    }
+
+    .social {
+      text-align: right;
+    }
+
+    .social i {
+      margin-left: 10px;
+      font-size: 1.2rem;
+    }
+
+    @media (max-width: 600px) {
+      .social {
+        text-align: left;
+        margin-top: 1rem;
       }
     }
   </style>
@@ -92,79 +138,76 @@
     <h1>Kumarage Furnitures</h1>
   </header>
 
-  <div class="banner"></div>
-  <div class="welcome">Welcome to Kumarage Furnitures</div>
-
   <nav>
-    <label for="category">Choose Category:</label>
-    <select id="category" onchange="goToCategory(this.value)">
-      <option value="">-- Select --</option>
-      <option value="beds">Beds</option>
-      <option value="chairs">Chairs</option>
-      <option value="dining">Dining Sets</option>
-      <option value="dressing">Dressing Tables</option>
-      <option value="sofas">Sofas</option>
-      <option value="wardrobes">Wardrobes</option>
+    <p>Welcome to Kumarage Furnitures</p>
+    <select onchange="location = this.value;">
+      <option disabled selected>Browse Categories</option>
+      <option value="#beds">Beds</option>
+      <option value="#chairs">Chairs</option>
+      <option value="#dining">Dining Sets</option>
+      <option value="#dressing">Dressing Tables</option>
+      <option value="#sofas">Sofas</option>
+      <option value="#wardrobes">Wardrobes</option>
     </select>
   </nav>
 
-  <div class="section">
-    <h2>Best Sellers</h2>
-    <div class="products-grid">
-      <div class="product">
-        <img src="bestseller1.jpg" alt="Hot Seller 1">
-        <h3>Hot Seller 1</h3>
-        <button class="order-button" onclick="orderNow('Hot Seller 1')">Order Now</button>
+  <section>
+    <h2 class="section-title">Best Sellers</h2>
+    <div class="product-grid">
+      <!-- Repeat 10 best seller items -->
+      ${[...Array(10)].map((_, i) => `
+        <div class="product">
+          <img src="best${i + 1}.jpg" alt="Best Seller ${i + 1}">
+          <h3>Hot Seller ${i + 1}</h3>
+          <p class="price">Rs. ${24990 + i * 500}</p>
+          <a class="btn" href="https://wa.me/94767166905?text=I'm%20interested%20in%20Hot%20Seller%20${i + 1}">Order Now</a>
+        </div>
+      `).join('')}
+    </div>
+  </section>
+
+  <section class="custom-furniture">
+    <h2>We Build Custom Furniture</h2>
+    <p>Modern. Unique. Just for you.</p>
+    <img src="custom.jpg" alt="Custom Furniture">
+    <br/><br/>
+    <a class="btn" href="https://wa.me/qr/5SDXPXTIKUTNI1">Contact for Custom Furniture</a>
+  </section>
+
+  <!-- Category Sections -->
+  ${["beds", "chairs", "dining", "dressing", "sofas", "wardrobes"].map(cat => `
+    <section id="${cat}">
+      <h2 class="section-title">${cat.charAt(0).toUpperCase() + cat.slice(1)}</h2>
+      <div class="product-grid">
+        ${[...Array(10)].map((_, i) => `
+          <div class="product">
+            <img src="${cat}${i + 1}.jpg" alt="${cat} ${i + 1}">
+            <h3>${cat.charAt(0).toUpperCase() + cat.slice(1)} ${i + 1}</h3>
+            <p class="price">Rs. ${20990 + i * 1000}</p>
+            <a class="btn" href="https://wa.me/94767166905?text=I'm%20interested%20in%20${cat.replace('-', ' ')}%20No%20${i + 1}">Order Now</a>
+          </div>
+        `).join('')}
       </div>
-      <div class="product">
-        <img src="bestseller2.jpg" alt="Hot Seller 2">
-        <h3>Hot Seller 2</h3>
-        <button class="order-button" onclick="orderNow('Hot Seller 2')">Order Now</button>
+      <div style="text-align:center; margin:2rem;">
+        <a href="#top" class="btn" style="background:#555;">Go Back</a>
       </div>
-      <!-- Add more best sellers similarly -->
-    </div>
-  </div>
+    </section>
+  `).join('')}
 
-  <div class="section">
-    <h2>Custom Furniture</h2>
-    <p>We build custom furniture</p>
-    <p><em>Modern. Unique. Designed for You.</em></p>
-    <img src="custom.jpg" alt="Custom Furniture" style="width:100%; max-width: 600px; display: block; margin: auto;">
-    <div style="text-align:center; margin-top:1rem;">
-      <a href="https://wa.me/qr/5SDXPXTIKUTNI1" class="order-button">Contact for Custom Furniture</a>
+  <footer>
+    <div class="contact-info">
+      <p><strong>Kumarage Furnitures</strong></p>
+      <p>Contact Numbers:</p>
+      <p>- 0750680092 (Milan)</p>
+      <p>- +94 76 716 6905 (Main)</p>
+      <p>- 0756153848 (Custom Orders)</p>
+      <p>Email: kumaragefurnitures@hotmail.com</p>
+      <p>Address: 647/2, Pelagaspalatha, Kosgoda</p>
     </div>
-  </div>
-
-  <div class="footer">
-    <div>
-      <strong>Kumarage Furnitures</strong><br>
-      Contact Number: 0750680092 (Milan)<br>
-      +94 76 716 6905 (Main)<br>
-      0756153848 (Custom Furniture)<br>
-      Email: kumaragefurnitures@hotmail.com<br>
-      Address: 647/2, Pelagaspalatha Kosgoda<br>
+    <div class="social">
+      <p><strong>Follow us on:</strong></p>
+      <i>📷</i> <i>📘</i> <i>📱</i>
     </div>
-    <div class="social-icons">
-      Follow us:
-      <i class="fab fa-instagram"></i>
-      <i class="fab fa-facebook"></i>
-      <i class="fab fa-whatsapp"></i>
-    </div>
-  </div>
-
-  <script>
-    function orderNow(productName) {
-      const message = `Hello, I would like to order: ${productName}`;
-      const phone = '94767166905';
-      const link = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-      window.open(link, '_blank');
-    }
-
-    function goToCategory(category) {
-      if (category) {
-        window.location.href = category + '.html';
-      }
-    }
-  </script>
+  </footer>
 </body>
 </html>
