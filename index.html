@@ -1,163 +1,125 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kumarage Furnitures</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
-    }
-    header {
-      background: url('banner.jpg') center/cover no-repeat;
-      height: 250px;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 36px;
-      font-weight: bold;
-    }
-    .content {
-      padding: 20px;
-      text-align: center;
-    }
-    .contact {
-      margin-bottom: 20px;
-    }
-    .categories {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 20px;
-      margin-bottom: 40px;
-    }
-    .category-box {
-      text-align: center;
-      cursor: pointer;
-    }
-    .category-box img {
-      width: 80px;
-      height: 80px;
-      object-fit: cover;
-      display: block;
-      margin: 0 auto 10px;
-    }
-    .top-sellers, .category-section {
-      padding: 20px;
-    }
-    .product {
-      background: white;
-      border: 1px solid #ddd;
-      padding: 10px;
-      margin: 10px;
-      width: 200px;
-      display: inline-block;
-      vertical-align: top;
-    }
-    .product img {
-      width: 100%;
-      height: 150px;
-      object-fit: cover;
-    }
-    .price {
-      background-color: red;
-      color: white;
-      padding: 5px;
-      margin-top: 5px;
-    }
-    .order-btn {
-      margin-top: 10px;
-      display: inline-block;
-      background-color: green;
-      color: white;
-      padding: 5px 10px;
-      text-decoration: none;
-      border-radius: 4px;
-    }
-    .category-section {
-      display: none;
-    }
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4; }
+    header { background: #333; color: #fff; padding: 20px; text-align: center; }
+    .banner img { width: 100%; max-height: 300px; object-fit: cover; }
+    .welcome { padding: 20px; text-align: center; background: #fff; }
+    .contact { text-align: center; padding: 10px; background: #ddd; }
+    .categories { display: flex; justify-content: center; flex-wrap: wrap; background: #fff; padding: 10px; }
+    .category { margin: 10px; text-align: center; cursor: pointer; }
+    .category img { width: 80px; height: 80px; display: block; margin: 0 auto; }
+    .category-name { margin-top: 5px; font-weight: bold; }
+    .separator { padding: 0 10px; font-weight: bold; }
+    .products-section { display: none; padding: 20px; background: #fff; }
+    .products { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+    .product-box { background: #fff; border: 1px solid #ccc; padding: 10px; width: 200px; box-shadow: 0 0 5px rgba(0,0,0,0.1); text-align: center; }
+    .product-box img { width: 100%; height: 150px; object-fit: cover; }
+    .price { background: red; color: white; padding: 5px; margin: 10px 0; }
+    .order-btn { display: inline-block; background: green; color: #fff; padding: 5px 10px; text-decoration: none; border-radius: 5px; }
+    .top-sellers { padding: 20px; background: #fff; }
+    h2 { text-align: center; }
   </style>
 </head>
 <body>
   <header>
-    Kumarage Furnitures
+    <h1>Kumarage Furnitures</h1>
   </header>
-  <div class="content">
-    <p>Welcome to Kumarage Furnitures! We offer quality custom-built furniture to suit your style.</p>
-    <div class="contact">
-      <p>Contact us at: 0712345678 | Email: kumaragefurnitures@example.com</p>
-    </div>
-    <div class="categories">
-      <div class="category-box" onclick="showCategory('sofas')">
-        <img src="sofa.jpg" alt="Sofas">
-        Sofas
-      </div>
-      <div class="category-box" onclick="showCategory('beds')">
-        <img src="bed.jpg" alt="Beds">
-        Beds
-      </div>
-      <div class="category-box" onclick="showCategory('dining')">
-        <img src="dining.jpg" alt="Dining Tables">
-        Dining Tables
-      </div>
-      <div class="category-box" onclick="showCategory('chairs')">
-        <img src="chair.jpg" alt="Chairs">
-        Chairs
-      </div>
-      <div class="category-box" onclick="showCategory('wardrobes')">
-        <img src="wardrobe.jpg" alt="Wardrobes">
-        Wardrobes
-      </div>
-    </div>
-
-    <h2>Top Sellers</h2>
-    <div class="top-sellers">
-      <!-- 10 sample products -->
-      <div class="product">
-        <img src="1.jpg" alt="Product 1">
-        <p>Product 1</p>
-        <div class="price">Rs. 35,000</div>
-        <a class="order-btn" href="https://wa.me/94712345678?text=I'm%20interested%20in%20Product%201" target="_blank">Order Now</a>
-      </div>
-      <!-- Repeat for products 2 to 10 -->
-      <!-- Sample loop -->
-      <!-- You can copy and replace the product name and image -->
-    </div>
-
-    <div id="sofas" class="category-section">
-      <h2>Sofas</h2>
-      <div class="product">
-        <img src="sofa1.jpg" alt="Sofa">
-        <p>Modern Sofa</p>
-        <div class="price">Rs. 35,000</div>
-        <a class="order-btn" href="https://wa.me/94712345678?text=I'm%20interested%20in%20Modern%20Sofa" target="_blank">Order Now</a>
-      </div>
-    </div>
-    <div id="beds" class="category-section">
-      <h2>Beds</h2>
-      <div class="product">
-        <img src="bed1.jpg" alt="Bed">
-        <p>Classic Bed</p>
-        <div class="price">Rs. 45,000</div>
-        <a class="order-btn" href="https://wa.me/94712345678?text=I'm%20interested%20in%20Classic%20Bed" target="_blank">Order Now</a>
-      </div>
-    </div>
-    <!-- Add other categories similarly -->
+  <div class="banner">
+    <img src="banner.jpg" alt="Banner">
   </div>
-
-  <script>
-    function showCategory(categoryId) {
-      document.querySelectorAll('.category-section').forEach(section => {
-        section.style.display = 'none';
-      });
-      document.getElementById(categoryId).style.display = 'block';
-      window.scrollTo(0, document.getElementById(categoryId).offsetTop);
+  <div class="welcome">
+    <p>Welcome to Kumarage Furnitures – Custom Built with Care and Style!</p>
+  </div>
+  <div class="contact">
+    <p>Contact: 077-1234567 | WhatsApp Orders Available</p>
+  </div>
+  <div class="categories">
+    <div class="category" onclick="showCategory('sofas')">
+      <img src="sofa-icon.jpg" alt="Sofas">
+      <div class="category-name">Sofas</div>
+    </div>
+    <div class="separator">|</div>
+    <div class="category" onclick="showCategory('beds')">
+      <img src="bed-icon.jpg" alt="Beds">
+      <div class="category-name">Beds</div>
+    </div>
+    <div class="separator">|</div>
+    <div class="category" onclick="showCategory('dining')">
+      <img src="dining-icon.jpg" alt="Dining Tables">
+      <div class="category-name">Dining</div>
+    </div>
+    <div class="separator">|</div>
+    <div class="category" onclick="showCategory('wardrobes')">
+      <img src="wardrobe-icon.jpg" alt="Wardrobes">
+      <div class="category-name">Wardrobes</div>
+    </div>
+  </div>  <div class="products-section" id="sofas">
+    <h2>Sofas</h2>
+    <div class="products">
+      <!-- Sample Sofa Products -->
+      <div class="product-box">
+        <img src="sofa1.jpg" alt="Sofa 1">
+        <div class="price">Rs. 35,000</div>
+        <a href="https://wa.me/94771234567" class="order-btn">Order Now</a>
+      </div>
+      <!-- Repeat for other sofa items -->
+    </div>
+  </div>  <div class="products-section" id="beds">
+    <h2>Beds</h2>
+    <div class="products">
+      <!-- Sample Bed Products -->
+      <div class="product-box">
+        <img src="bed1.jpg" alt="Bed 1">
+        <div class="price">Rs. 45,000</div>
+        <a href="https://wa.me/94771234567" class="order-btn">Order Now</a>
+      </div>
+    </div>
+  </div>  <div class="products-section" id="dining">
+    <h2>Dining Tables</h2>
+    <div class="products">
+      <!-- Sample Dining Table Products -->
+      <div class="product-box">
+        <img src="dining1.jpg" alt="Dining 1">
+        <div class="price">Rs. 30,000</div>
+        <a href="https://wa.me/94771234567" class="order-btn">Order Now</a>
+      </div>
+    </div>
+  </div>  <div class="products-section" id="wardrobes">
+    <h2>Wardrobes</h2>
+    <div class="products">
+      <!-- Sample Wardrobe Products -->
+      <div class="product-box">
+        <img src="wardrobe1.jpg" alt="Wardrobe 1">
+        <div class="price">Rs. 40,000</div>
+        <a href="https://wa.me/94771234567" class="order-btn">Order Now</a>
+      </div>
+    </div>
+  </div>  <div class="top-sellers">
+    <h2>Top Sellers</h2>
+    <div class="products">
+      <!-- 10 Sample Top Sellers -->
+      <div class="product-box">
+        <img src="top1.jpg" alt="Product 1">
+        <div class="price">Rs. 25,000</div>
+        <a href="https://wa.me/94771234567" class="order-btn">Order Now</a>
+      </div>
+      <div class="product-box">
+        <img src="top2.jpg" alt="Product 2">
+        <div class="price">Rs. 26,000</div>
+        <a href="https://wa.me/94771234567" class="order-btn">Order Now</a>
+      </div>
+      <!-- Add 8 more similarly -->
+    </div>
+  </div>  <script>
+    function showCategory(id) {
+      const sections = document.querySelectorAll('.products-section');
+      sections.forEach(section => section.style.display = 'none');
+      document.getElementById(id).style.display = 'block';
+      window.scrollTo(0, document.getElementById(id).offsetTop);
     }
-  </script>
-</body>
+  </script></body>
 </html>
