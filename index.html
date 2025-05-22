@@ -1,72 +1,73 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kumarage Furnitures</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f7f7f7; }
-    header { background: #333; color: white; text-align: center; padding: 2rem 1rem; }
-    header h1 { margin: 0; font-size: 2rem; }
-    header p { margin-top: 0.5rem; font-size: 1.1rem; }
-    .category-select { padding: 1rem; text-align: center; background: #fff; }
-    select { padding: 0.5rem; font-size: 1rem; }
-    .products { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; padding: 1rem; }
-    .product-card { background: white; border: 1px solid #ddd; border-radius: 8px; width: 250px; padding: 1rem; box-shadow: 0 0 10px rgba(0,0,0,0.05); }
-    .product-card img { width: 100%; height: auto; border-radius: 6px; }
-    .product-card h3 { font-size: 1.2rem; margin: 0.5rem 0; }
-    .product-card button { background: #25d366; color: white; border: none; padding: 0.5rem 1rem; font-size: 1rem; cursor: pointer; border-radius: 4px; }
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+    .banner img { width: 100%; max-height: 300px; object-fit: cover; }
+    .welcome { padding: 20px; text-align: center; background-color: #f2f2f2; }
+    .contact { padding: 10px; text-align: center; background-color: #e0e0e0; }
+    .categories { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; padding: 20px; background-color: #f9f9f9; }
+    .category { text-align: center; }
+    .category img { width: 80px; height: 80px; object-fit: cover; display: block; margin: auto; }
+    .top-sellers { padding: 20px; }
+    .top-sellers h2 { text-align: center; }
+    .products { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+    .product { border: 1px solid #ccc; border-radius: 8px; width: 250px; padding: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-align: center; }
+    .product img { width: 100%; border-radius: 5px; height: 150px; object-fit: cover; }
   </style>
 </head>
-<body>
-  <header>
+<body>  <!-- Banner -->  <div class="banner">
+    <img src="banner.jpg" alt="Kumarage Furnitures">
+  </div>  <!-- Welcome Note -->  <div class="welcome">
     <h1>Welcome to Kumarage Furnitures</h1>
-    <p>Call us : 0756153848 </p>
-  </header>
-
-  <div class="category-select">
-    <label for="category">Choose a category:</label>
-    <select id="category" onchange="filterCategory()">
-      <option value="all">All</option>
-      <option value="sofas">Sofas</option>
-      <option value="beds">Beds</option>
-      <option value="dining-tables">Dinning Tables</option>
-      <option value="dining-chairs">Dinning Chairs</option>
-      <option value="chairs">Chairs</option>
-      <option value="wardrobes">Wardrobes</option>
-    </select>
-  </div>
-
-  <div class="products" id="productList">
-    <!-- Sample products -->
-    <div class="product-card" data-category="sofas">
-      <img src="https://via.placeholder.com/250x150?text=Sofa+1" alt="Sofa 1">
-      <h3>Modern Sofa</h3>
-      <button onclick="orderNow('Modern Sofa')">Order Now</button>
+    <p>We make quality custom-built furniture that suits your style and space.</p>
+  </div>  <!-- Contact Details -->  <div class="contact">
+    <p>Contact us: 077-1234567 | Email: kumaragefurnitures@email.com | Location: Colombo</p>
+  </div>  <!-- Categories -->  <div class="categories">
+    <div class="category">
+      <img src="sofa-icon.jpg" alt="Sofas">
+      <p>Sofas</p>
     </div>
-
-    <div class="product-card" data-category="beds">
-      <img src="https://via.placeholder.com/250x150?text=Bed+1" alt="Bed 1">
-      <h3>Queen Bed</h3>
-      <button onclick="orderNow('Queen Bed')">Order Now</button>
+    <div>|</div>
+    <div class="category">
+      <img src="bed-icon.jpg" alt="Beds">
+      <p>Beds</p>
     </div>
-
-    <!-- Add more products later -->
-  </div>
-
-  <script>
-    function filterCategory() {
-      const selected = document.getElementById('category').value;
-      const products = document.querySelectorAll('.product-card');
-      products.forEach(p => {
-        p.style.display = (selected === 'all' || p.dataset.category === selected) ? 'block' : 'none';
-      });
-    }
-
-    function orderNow(productName) {
-      const message = `Hi, I'm interested in ordering: ${productName}`;
-      window.open(`https://wa.me/YOUR_PHONE_NUMBER?text=${encodeURIComponent(message)}`, '_blank');
-    }
-  </script>
-</body>
+    <div>|</div>
+    <div class="category">
+      <img src="dining-icon.jpg" alt="Dining Tables">
+      <p>Dining Tables</p>
+    </div>
+    <div>|</div>
+    <div class="category">
+      <img src="chair-icon.jpg" alt="Chairs">
+      <p>Chairs</p>
+    </div>
+    <div>|</div>
+    <div class="category">
+      <img src="wardrobe-icon.jpg" alt="Wardrobes">
+      <p>Wardrobes</p>
+    </div>
+  </div>  <!-- Top Sellers -->  <div class="top-sellers">
+    <h2>Top Sellers</h2>
+    <div class="products">
+      <div class="product">
+        <img src="sofa1.jpg" alt="Modern Sofa">
+        <h3>Modern Sofa</h3>
+        <p>Design: L-shaped, Fabric</p>
+        <p>Price: Rs. 35,000</p>
+      </div>
+      <!-- Repeat similar blocks for 9 more products -->
+      <!-- Placeholder examples below -->
+      <div class="product">
+        <img src="bed1.jpg" alt="King Bed">
+        <h3>King Size Bed</h3>
+        <p>Design: Teak, Minimalist</p>
+        <p>Price: Rs. 65,000</p>
+      </div>
+      <!-- Add more items as needed -->
+    </div>
+  </div></body>
 </html>
