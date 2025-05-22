@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kumarage Furnitures</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f7f7f7; }
+    header { background: #333; color: white; text-align: center; padding: 2rem 1rem; }
+    header h1 { margin: 0; font-size: 2rem; }
+    header p { margin-top: 0.5rem; font-size: 1.1rem; }
+    .category-select { padding: 1rem; text-align: center; background: #fff; }
+    select { padding: 0.5rem; font-size: 1rem; }
+    .products { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; padding: 1rem; }
+    .product-card { background: white; border: 1px solid #ddd; border-radius: 8px; width: 250px; padding: 1rem; box-shadow: 0 0 10px rgba(0,0,0,0.05); }
+    .product-card img { width: 100%; height: auto; border-radius: 6px; }
+    .product-card h3 { font-size: 1.2rem; margin: 0.5rem 0; }
+    .product-card button { background: #25d366; color: white; border: none; padding: 0.5rem 1rem; font-size: 1rem; cursor: pointer; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Welcome to Kumarage Furnitures</h1>
+    <p>Custom-Made Comfort for Every Home</p>
+  </header>
+
+  <div class="category-select">
+    <label for="category">Choose a category:</label>
+    <select id="category" onchange="filterCategory()">
+      <option value="all">All</option>
+      <option value="sofas">Sofas</option>
+      <option value="beds">Beds</option>
+      <option value="dining-tables">Dinning Tables</option>
+      <option value="dining-chairs">Dinning Chairs</option>
+      <option value="chairs">Chairs</option>
+      <option value="wardrobes">Wardrobes</option>
+    </select>
+  </div>
+
+  <div class="products" id="productList">
+    <!-- Sample products -->
+    <div class="product-card" data-category="sofas">
+      <img src="https://via.placeholder.com/250x150?text=Sofa+1" alt="Sofa 1">
+      <h3>Modern Sofa</h3>
+      <button onclick="orderNow('Modern Sofa')">Order Now</button>
+    </div>
+
+    <div class="product-card" data-category="beds">
+      <img src="https://via.placeholder.com/250x150?text=Bed+1" alt="Bed 1">
+      <h3>Queen Bed</h3>
+      <button onclick="orderNow('Queen Bed')">Order Now</button>
+    </div>
+
+    <!-- Add more products later -->
+  </div>
+
+  <script>
+    function filterCategory() {
+      const selected = document.getElementById('category').value;
+      const products = document.querySelectorAll('.product-card');
+      products.forEach(p => {
+        p.style.display = (selected === 'all' || p.dataset.category === selected) ? 'block' : 'none';
+      });
+    }
+
+    function orderNow(productName) {
+      const message = `Hi, I'm interested in ordering: ${productName}`;
+      window.open(`https://wa.me/YOUR_PHONE_NUMBER?text=${encodeURIComponent(message)}`, '_blank');
+    }
+  </script>
+</body>
+</html>
