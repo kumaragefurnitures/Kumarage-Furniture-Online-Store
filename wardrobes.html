@@ -1,123 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Wardrobes - Kumarage Furnitures</title>
-  <link rel="stylesheet" href="styles.css" />
   <style>
-    .product-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 8px;
-      display: block;
-    }
-    .back-button {
-      float: right;
-      margin: 10px;
-      background: #ccc;
-      padding: 5px 10px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+    body { margin: 0; font-family: Arial, sans-serif; background: #f7f7f7; color: #333; }
+    header { background: #333; color: #fff; padding: 20px; text-align: center; }
+    h1 { margin: 0 0 10px; }
+    .subtext { font-size: 16px; color: #ccc; }
+    .products-section { padding: 20px; }
+    .section-title { font-size: 24px; margin-bottom: 20px; }
+    .product-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+    @media(min-width: 768px) { .product-grid { grid-template-columns: repeat(3, 1fr); } }
+    .product-card { background: white; border-radius: 10px; padding: 15px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
+    .product-name { font-weight: bold; margin-bottom: 10px; }
+    .product-img { width: 100%; height: auto; border-radius: 8px; object-fit: cover; }
+    .price { font-size: 18px; margin-bottom: 10px; }
+    .order-button { background-color: #f3c6a0; border: none; padding: 10px; border-radius: 5px; color: #000; font-weight: bold; cursor: pointer; width: 100%; }
+    .category-button { background-color: #f3e2d2; border: none; padding: 10px 15px; border-radius: 5px; font-weight: bold; color: black; text-decoration: none; margin: 5px; display: inline-block; }
+    .back { text-align: center; margin: 20px; }
   </style>
 </head>
 <body>
   <header>
     <h1>Wardrobes</h1>
-    <button class="back-button" onclick="location.href='index.html'">← Back to Home</button>
+    <div class="subtext">Spacious and stylish wardrobes for every room</div>
   </header>
 
-  <div class="products-section">
-    <div class="section-title">Wardrobes Collection</div>
-    <div class="product-grid">
-      <div class="product-card">
-        <div class="product-name">Wardrobes 1</div>
-        <div class="product-image">
-          <img class="product-img" src="images/wardrobes1.jpg" alt="Wardrobes 1">
-        </div>
-        <div class="price">Rs. 51500</div>
-        <button class="order-button" onclick="window.open('https://wa.me/94756153848?text=Hi,%20I%20would%20like%20to%20order%20Wardrobes%20No%201%20from%20your%20website.', '_blank')">Order Now</button>
-      </div>
-      <div class="product-card">
-        <div class="product-name">Wardrobes 2</div>
-        <div class="product-image">
-          <img class="product-img" src="images/wardrobes2.jpg" alt="Wardrobes 2">
-        </div>
-        <div class="price">Rs. 53000</div>
-        <button class="order-button" onclick="window.open('https://wa.me/94756153848?text=Hi,%20I%20would%20like%20to%20order%20Wardrobes%20No%202%20from%20your%20website.', '_blank')">Order Now</button>
-      </div>
-      <div class="product-card">
-        <div class="product-name">Wardrobes 3</div>
-        <div class="product-image">
-          <img class="product-img" src="images/wardrobes3.jpg" alt="Wardrobes 3">
-        </div>
-        <div class="price">Rs. 54500</div>
-        <button class="order-button" onclick="window.open('https://wa.me/94756153848?text=Hi,%20I%20would%20like%20to%20order%20Wardrobes%20No%203%20from%20your%20website.', '_blank')">Order Now</button>
-      </div>
-      <div class="product-card">
-        <div class="product-name">Wardrobes 4</div>
-        <div class="product-image">
-          <img class="product-img" src="images/wardrobes4.jpg" alt="Wardrobes 4">
-        </div>
-        <div class="price">Rs. 56000</div>
-        <button class="order-button" onclick="window.open('https://wa.me/94756153848?text=Hi,%20I%20would%20like%20to%20order%20Wardrobes%20No%204%20from%20your%20website.', '_blank')">Order Now</button>
-      </div>
-      <div class="product-card">
-        <div class="product-name">Wardrobes 5</div>
-        <div class="product-image">
-          <img class="product-img" src="images/wardrobes5.jpg" alt="Wardrobes 5">
-        </div>
-        <div class="price">Rs. 57500</div>
-        <button class="order-button" onclick="window.open('https://wa.me/94756153848?text=Hi,%20I%20would%20like%20to%20order%20Wardrobes%20No%205%20from%20your%20website.', '_blank')">Order Now</button>
-      </div>
-      <div class="product-card">
-        <div class="product-name">Wardrobes 6</div>
-        <div class="product-image">
-          <img class="product-img" src="images/wardrobes6.jpg" alt="Wardrobes 6">
-        </div>
-        <div class="price">Rs. 59000</div>
-        <button class="order-button" onclick="window.open('https://wa.me/94756153848?text=Hi,%20I%20would%20like%20to%20order%20Wardrobes%20No%206%20from%20your%20website.', '_blank')">Order Now</button>
-      </div>
-      <div class="product-card">
-        <div class="product-name">Wardrobes 7</div>
-        <div class="product-image">
-          <img class="product-img" src="images/wardrobes7.jpg" alt="Wardrobes 7">
-        </div>
-        <div class="price">Rs. 60500</div>
-        <button class="order-button" onclick="window.open('https://wa.me/94756153848?text=Hi,%20I%20would%20like%20to%20order%20Wardrobes%20No%207%20from%20your%20website.', '_blank')">Order Now</button>
-      </div>
-      <div class="product-card">
-        <div class="product-name">Wardrobes 8</div>
-        <div class="product-image">
-          <img class="product-img" src="images/wardrobes8.jpg" alt="Wardrobes 8">
-        </div>
-        <div class="price">Rs. 62000</div>
-        <button class="order-button" onclick="window.open('https://wa.me/94756153848?text=Hi,%20I%20would%20like%20to%20order%20Wardrobes%20No%208%20from%20your%20website.', '_blank')">Order Now</button>
-      </div>
-      <div class="product-card">
-        <div class="product-name">Wardrobes 9</div>
-        <div class="product-image">
-          <img class="product-img" src="images/wardrobes9.jpg" alt="Wardrobes 9">
-        </div>
-        <div class="price">Rs. 63500</div>
-        <button class="order-button" onclick="window.open('https://wa.me/94756153848?text=Hi,%20I%20would%20like%20to%20order%20Wardrobes%20No%209%20from%20your%20website.', '_blank')">Order Now</button>
-      </div>
-      <div class="product-card">
-        <div class="product-name">Wardrobes 10</div>
-        <div class="product-image">
-          <img class="product-img" src="images/wardrobes10.jpg" alt="Wardrobes 10">
-        </div>
-        <div class="price">Rs. 65000</div>
-        <button class="order-button" onclick="window.open('https://wa.me/94756153848?text=Hi,%20I%20would%20like%20to%20order%20Wardrobes%20No%2010%20from%20your%20website.', '_blank')">Order Now</button>
-      </div>
-    </div>
+  <div class="back">
+    <a href="products.html" class="category-button">← Back to Products</a>
   </div>
 
-  <footer>
-    <p>&copy; 2025 Kumarage Furnitures. All rights reserved.</p>
-  </footer>
+  <div class="products-section">
+    <div class="section-title>Wardrobe Collection</div>
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="product-name">3-Door Wooden Wardrobe</div>
+        <img class="product-img" src="images/wardrobe1.jpg" alt="3-Door Wooden Wardrobe">
+        <div class="price">Rs. 45,000</div>
+        <button class="order-button" onclick="window.open('https://wa.me/94756153848?text=I%20would%20like%20to%20order%203-Door%20Wooden%20Wardrobe','_blank')">Order Now</button>
+      </div>
+      <!-- Repeat similar 9 product cards -->
+    </div>
+  </div>
 </body>
 </html>
